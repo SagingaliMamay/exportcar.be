@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title%}Home {% endblock %}
 {% block content %}
 
           <!-- banner -->
@@ -16,7 +16,7 @@
                         Tahir is de beste garagiste in Belgie
                         <head></head>
                     </p>
-                    <a href="#">Auto Aanbieden</a>
+                    <a href="{% url 'home' %}">Auto Aanbieden</a>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-md-6 offset-md-6">
-                        <form class="main_form" method="post" action="#">
+                        <form class="main_form" method="post" action="{% url 'home' %} enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="titlepage">
                                 <h2>U WILT UW AUTO VERKOPEN?</h2>

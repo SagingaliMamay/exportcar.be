@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>exportcar</title>
+    <title>{% block title%}{% endblock %}</title>
     <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="description" content="auto verkopen">
     <meta name="author" content="">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css'%}">
@@ -73,7 +73,7 @@
                                  <a class="nav-link" href="{% url 'contact' %}">Contact Ons</a>
                               </li>
                            </ul>
-                           <div class="sign_btn"><a href="#">Auto Aanbieden </a></div>
+                           <div class="sign_btn"><a href="{% url 'form' %}">Auto Aanbieden </a></div>
                         </div>
                      </nav>
                   </div>

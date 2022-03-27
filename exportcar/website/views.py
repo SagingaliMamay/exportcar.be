@@ -16,11 +16,14 @@ def home(request):
         voornaam = request.POST['voornaam']
         gsm = request.POST['gsm']
 
+        #groupement
+
+        car_data = "Merk: " + merk + "\n" "Jaar: " + year + "\n""Transmissie: " + transmission + "\n""Brandstof: " + nrg + "\n""Kilometres: " + km + "\n""Prijs: " + price +"\n" "Description: " + desc + "\n""Email: " + email + "\n""Photos: " + file +"\n" "Naam: " + naam + "\n""Voornaam: " + voornaam + "\n""GSM nummer: " + gsm
 
         # send an email from form
         send_mail(
            'Taha, message from' + voornaam, # subject
-            desc,# message
+            car_data,# message
             email,# from email
             ['sagingali.mamayev@gmail.com']# to email
         )
@@ -47,3 +50,8 @@ def contact(request):
 
 def about(request):
     return render(request, 'about.html', {})
+
+# form data
+
+def form_data(request):
+    return render(request, 'form_data.html', {})
