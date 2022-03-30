@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.core.files.storage import FileSystemStorage
 
 def home(request):
     if request.method == "POST":
@@ -18,7 +19,10 @@ def home(request):
 
         #groupement
 
-        car_data = "Merk: " + merk + "\n" "Jaar: " + year + "\n""Transmissie: " + transmission + "\n""Brandstof: " + nrg + "\n""Kilometres: " + km + "\n""Prijs: " + price +"\n" "Description: " + desc + "\n""Email: " + email + "\n""Photos: " + file +"\n" "Naam: " + naam + "\n""Voornaam: " + voornaam + "\n""GSM nummer: " + gsm
+        car_data = "Merk: " + merk + "\n" "Jaar: " + year + "\n""Transmissie: " \
+                   + transmission + "\n""Brandstof: " + nrg + "\n""Kilometres: " + km + "\n""Prijs: " \
+                   + price +"\n" "Description: " + desc + "\n""Email: " + email + "\n""Photos: " \
+                   + file +"\n" "Naam: " + naam + "\n""Voornaam: " + voornaam + "\n""GSM nummer: " + gsm
 
         # send an email from form
         send_mail(
@@ -55,3 +59,14 @@ def about(request):
 
 def form_data(request):
     return render(request, 'form_data.html', {})
+
+
+#upload file
+def upload(request):
+    if request.method == 'POST' and request.FILES['upload']:
+        upload = request.FILES['upload']
+        fss = FileSystemStorage()
+        file = fss.save(upload.name, upload)
+        file_url = fss.url(file)
+        return render(request, 'upload.html', {'file_url': file_url})
+    return render(request, 'upload.html', {})

@@ -3,7 +3,7 @@
 {% block title%}Home {% endblock %}
 {% block content %}
 
-          <!-- banner -->
+<!-- banner -->
 <section class="banner_main">
     <div class="container">
         <div class="row d_flex">
@@ -76,7 +76,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-md-6 offset-md-6">
-                        <form class="main_form" method="post" action="{% url 'home' %} enctype="multipart/form-data">
+                        <form class="main_form" method="post" action="{% url 'home' %}" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="titlepage">
                                 <h2>U WILT UW AUTO VERKOPEN?</h2>
@@ -88,10 +88,10 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input class="contactus" placeholder="Merk/Model"  name="merk">
+                                    <input class="contactus" placeholder="Merk/Model" name="merk">
                                 </div>
                                 <div class="col-md-12">
-                                    <input class="contactus" placeholder="Bouwaar"  name="year">
+                                    <input class="contactus" placeholder="Bouwaar" name="year">
                                 </div>
 
                                 <div class="col-md-12">
@@ -118,27 +118,32 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input type="file" class="form-control-file" name="file">
+                                    <input type="file" accept="image/png" name="file">
                                 </div>
 
+                                <div class="container">
 
-                                <form>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="Naam" name="naam">
+
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Naam" name="naam">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Voornaam"
+                                                       name="voornaam">
+                                            </div>
+                                            <div class="col">
+                                                <input type="tel" class="form-control" placeholder="GSM nummer"
+                                                       name="gsm">
+                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="Voornaam" name="voornaam" >
-                                        </div>
-                                        <div class="col">
-                                            <input type="tel" class="form-control" placeholder="GSM nummer" name="gsm">
-                                        </div>
+                                    </form>
+
+
+                                    <div class="col-sm-12">
+                                        <button class="find_btn">AUTO AANBIEDEN</button>
                                     </div>
-                                </form>
-
-
-                                <div class="col-sm-12">
-                                    <button class="find_btn">AUTO AANBIEDEN</button>
                                 </div>
                             </div>
                         </form>
