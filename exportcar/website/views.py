@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
 
+from .forms import *
+from .models import *
+
+
 def home(request):
-    if request.method == "POST":
+   if request.method == "POST":
         merk = request.POST['merk']
         year = request.POST['year']
         transmission = request.POST['transmission']
@@ -38,8 +42,9 @@ def home(request):
                                              'desc': desc, 'email': email,
                                              'file': file, 'naam': naam,
                                              'voornaam': voornaam, 'gsm': gsm, })
-    else:
+   else:
         return render(request, 'home.html', {})
+
 
 
 
@@ -58,15 +63,22 @@ def about(request):
 # form data
 
 def form_data(request):
-    return render(request, 'form_data.html', {})
+    form = Car_dataForm()
+
+    data = {
+            'form': form,
+
+    }
+    return render(request, 'upload.html', data)
 
 
 #upload file
 def upload(request):
-    if request.method == 'POST' and request.FILES['upload']:
-        upload = request.FILES['upload']
-        fss = FileSystemStorage()
-        file = fss.save(upload.name, upload)
-        file_url = fss.url(file)
-        return render(request, 'upload.html', {'file_url': file_url})
-    return render(request, 'upload.html', {})
+    form = Car_dataForm()
+
+    data = {
+        'form': form,
+
+    }
+    return render(request, 'upload.html', data)
+

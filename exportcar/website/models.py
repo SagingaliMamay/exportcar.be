@@ -17,3 +17,6 @@ class Car_data(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/%d")
     send_time = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.mark
+

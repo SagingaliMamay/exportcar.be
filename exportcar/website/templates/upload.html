@@ -1,32 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}upload{% endblock %}
+
 
 {% block content %}
 
-        <div class="container">
+      <div class="features">
+          <h1>Auto Gegevens</h1>
+          <form method="post">
+              {% csrf_token %}
+              {{ form.year }}
+              {{ form.nrg }}
+              {{ form.transmission }}
+              {{ form.km }}
+              {{ form.price }}
+              {{ form.description }}
+              {{ form.email }}
+              {{ form.name }}
+              {{ form.tel }}
+              {{ form.photo }}
 
-          <!--Simple Form-->
-          <h2 class="my-4">Add a new movie script</h2>
-          <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-                <input type="file" name="upload" accept="image/*">
-                <br>
-                <button class="btn btn-dark my-4" type="submit">Submit</button>
+
+              <input type="text" placeholder="Merk" class="form-control">
+              <input type="text" placeholder="Model" class="form-control">
+              <input type="text" placeholder="Brandstof" class="form-control">
+              <input type="text" placeholder="Transmissie" class="form-control">
+              <input type="text" placeholder="Bouwaar" class="form-control">
+              <input type="text" placeholder="" class="form-control">
+              <textarea class="form-control" placeholder="Staat"></textarea>
+              <button class="btn btn-success" type="submit">Send</button>
           </form>
-
-          <!--See File Uploaded-->
-          <h2 class="my-4">Movie Script</h2>
-          <div class="row">
-            {% if uploaded_file_url %}
-            <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
-              <p>Uploaded to:<a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-              <a class="btn btn-dark my-4" href="/">Return to Homepage</a>
-            {% else %}
-            <p>No movies scripts added.</p>
-            {% endif %}
-          </div>
-
-        </div>
-        </div>
+      </div>
 
 {% endblock %}
