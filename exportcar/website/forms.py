@@ -39,7 +39,7 @@ class Car_dataForm(ModelForm):
                 "class": 'form-control',
                 "placeholder": 'Beschrijving:'
             }),
-            "email": forms.TextInput(attrs={
+            "email": forms.EmailInput(attrs={
                 "class": 'form-control',
                 "placeholder": 'email'
             }),
