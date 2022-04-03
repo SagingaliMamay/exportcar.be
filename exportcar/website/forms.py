@@ -38,6 +38,7 @@ class Car_dataForm(ModelForm):
             "description": forms.Textarea(attrs={
                 "class": 'form-control',
                 "placeholder": 'Beschrijving:'
+
             }),
             "email": forms.EmailInput(attrs={
                 "class": 'form-control',
@@ -51,6 +52,8 @@ class Car_dataForm(ModelForm):
                 "class": 'form-control',
                 "placeholder": 'Telefon'
             }),
+
+
     }
 
 
