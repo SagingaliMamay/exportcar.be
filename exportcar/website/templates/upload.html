@@ -4,11 +4,14 @@
 
 
 {% block content %}
-
+<div class="container mt-6">
+    <div class="row">
+        <div class="col-md-6">
       <div class="features">
           <h1>Auto Gegevens</h1>
-          <form method="post">
+          <form method="post" enctype="multipart/form-data">
               {% csrf_token %}
+              {{ form.mark }}
               {{ form.year }}
               {{ form.nrg }}
               {{ form.transmission }}
@@ -18,18 +21,13 @@
               {{ form.email }}
               {{ form.name }}
               {{ form.tel }}
-              {{ form.photo }}
+              {{ form.photo }}<br>
 
-
-              <input type="text" placeholder="Merk" class="form-control">
-              <input type="text" placeholder="Model" class="form-control">
-              <input type="text" placeholder="Brandstof" class="form-control">
-              <input type="text" placeholder="Transmissie" class="form-control">
-              <input type="text" placeholder="Bouwaar" class="form-control">
-              <input type="text" placeholder="" class="form-control">
-              <textarea class="form-control" placeholder="Staat"></textarea>
               <button class="btn btn-success" type="submit">Send</button>
           </form>
       </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

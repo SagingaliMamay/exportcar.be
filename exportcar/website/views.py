@@ -7,7 +7,7 @@ from .models import *
 
 
 def home(request):
-   if request.method == "POST":
+    if request.method == "POST":
         merk = request.POST['merk']
         year = request.POST['year']
         transmission = request.POST['transmission']
@@ -21,19 +21,19 @@ def home(request):
         voornaam = request.POST['voornaam']
         gsm = request.POST['gsm']
 
-        #groupement
+        # groupement
 
         car_data = "Merk: " + merk + "\n" "Jaar: " + year + "\n""Transmissie: " \
                    + transmission + "\n""Brandstof: " + nrg + "\n""Kilometres: " + km + "\n""Prijs: " \
-                   + price +"\n" "Description: " + desc + "\n""Email: " + email + "\n""Photos: " \
-                   + file +"\n" "Naam: " + naam + "\n""Voornaam: " + voornaam + "\n""GSM nummer: " + gsm
+                   + price + "\n" "Description: " + desc + "\n""Email: " + email + "\n""Photos: " \
+                   + file + "\n" "Naam: " + naam + "\n""Voornaam: " + voornaam + "\n""GSM nummer: " + gsm
 
         # send an email from form
         send_mail(
-           'Taha, message from' + voornaam, # subject
-            car_data,# message
-            email,# from email
-            ['sagingali.mamayev@gmail.com']# to email
+            'Taha, message from' + voornaam,  # subject
+            car_data,  # message
+            email,  # from email
+            ['sagingali.mamayev@gmail.com']  # to email
         )
 
         return render(request, 'home.html', {'merk': merk, 'year': year,
@@ -42,11 +42,8 @@ def home(request):
                                              'desc': desc, 'email': email,
                                              'file': file, 'naam': naam,
                                              'voornaam': voornaam, 'gsm': gsm, })
-   else:
+    else:
         return render(request, 'home.html', {})
-
-
-
 
 
 # contact page
@@ -60,20 +57,10 @@ def contact(request):
 def about(request):
     return render(request, 'about.html', {})
 
+
 # form data
 
 def form_data(request):
-    form = Car_dataForm()
-
-    data = {
-            'form': form,
-
-    }
-    return render(request, 'upload.html', data)
-
-
-#upload file
-def upload(request):
     form = Car_dataForm()
 
     data = {
@@ -82,3 +69,17 @@ def upload(request):
     }
     return render(request, 'upload.html', data)
 
+
+# upload file
+def upload(request):
+    if request.method == 'POST':
+        form = Car_dataForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+    form = Car_dataForm()
+
+    data = {
+            'form': form,
+        }
+    return render(request, 'upload.html', data)
