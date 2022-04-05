@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
 
@@ -93,6 +93,7 @@ def upload(request):
             }
             message = "\n".join(map(str, body.values()))
             send_mail(subject, message, 'sagingali.mamayev@gmail.com', ['sagingali.mamayev@gmail.com'])
+            return render(request, 'thanks.html')
 
     form = Car_dataForm()
 
@@ -100,6 +101,7 @@ def upload(request):
             'form': form,
         }
     return render(request, 'upload.html', data)
+
 
 
 def thanks(request):
