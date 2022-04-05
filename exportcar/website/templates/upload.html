@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}upload{% endblock %}
+{% block title %}Verkopen{% endblock %}
 
 
 {% block content %}
@@ -22,12 +22,18 @@
               {{ form.name }}
               {{ form.tel }}
               {{ form.photo }}<br>
-
+                <p class="card-text">
+            {% if form.photo %}
+            <img src="{{ form.photo.url }}">
+            {% endif %}
+        </p>
               <button class="btn btn-success" type="submit">Send</button>
           </form>
+
       </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

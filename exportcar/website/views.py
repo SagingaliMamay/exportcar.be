@@ -73,10 +73,10 @@ def form_data(request):
 # upload file
 def upload(request):
     if request.method == 'POST':
-        form = Car_dataForm(request.POST, request.FILES)
+        form = Car_dataForm(request.POST, request.FILES or None)
         if form.is_valid():
             form.save()
-            subject = "Website Inquiry"
+            subject = "Таха новая машина пришла"
             body = {
                 'mark': form.cleaned_data['mark'],
                 'year': form.cleaned_data['year'],
@@ -100,3 +100,7 @@ def upload(request):
             'form': form,
         }
     return render(request, 'upload.html', data)
+
+
+def thanks(request):
+    return render(request, 'thanks.html', {})
