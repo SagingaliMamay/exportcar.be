@@ -68,10 +68,21 @@ WSGI_APPLICATION = 'exportcar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6ldf0u2c19hca',
+        'USER': 'bwqowlkumainau',
+        'PASSWORD': '0619273ed37d4de3a29fcd715a2cf2bd6f0eaf79f294778d65843ca6e2c8d799',
+        'HOST': 'ec2-52-73-155-171.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -110,7 +121,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
