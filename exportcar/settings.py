@@ -17,7 +17,7 @@ SECRET_KEY = 'RANDOM_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['exportcar.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['exportcars.herokuapp.com']
 
 # Application definition
 
