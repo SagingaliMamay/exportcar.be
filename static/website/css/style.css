@@ -328,13 +328,18 @@ button {
 }
 
 .logo a {
+     margin-left:-76px;
      font-size: 40px;
      font-weight: bold;
      text-transform: uppercase;
      color: #fff;
      line-height: 40px;
+
 }
 
+.logo a {
+    margin-left: -76px;
+}
 
 /** banner section **/
 
