@@ -33,7 +33,7 @@ def home(request):
             'Taha, message from' + voornaam,  # subject
             car_data,  # message
             email,  # from email
-            ['sagingali.mamayev@gmail.com']  # to email
+            ['exportscars111@gmail.com']  # to email
         )
 
         return render(request, 'home.html', {'merk': merk, 'year': year,
@@ -92,7 +92,7 @@ def upload(request):
 
             }
             message = "\n".join(map(str, body.values()))
-            send_mail(subject, message, 'sagingali.mamayev@gmail.com', ['sagingali.mamayev@gmail.com'])
+            send_mail(subject, message, 'exportcars111@gmail.com', ['exportcars111@gmail.com'])
             return render(request, 'thanks.html')
 
     form = Car_dataForm()
