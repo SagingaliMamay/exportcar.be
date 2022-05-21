@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <div class="features">
                 <h1>Auto Gegevens</h1>
-                <form method="post" enctype="multipart/form-data">
+                <form action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.mark }}
                     {{ form.year }}
