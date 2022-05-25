@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'exportcar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6ldf0u2c19hca',
-        'USER': 'bwqowlkumainau',
-        'PASSWORD': '0619273ed37d4de3a29fcd715a2cf2bd6f0eaf79f294778d65843ca6e2c8d799',
-        'HOST': 'ec2-52-73-155-171.compute-1.amazonaws.com',
+        'NAME': 'd3lsu5o7kht9nd',
+        'USER': 'deibxzehgdnatv',
+        'PASSWORD': '2f4163f72c33cada7b390d63de691cd3e32625f73a2cd935ead8ba836cb4cc2b',
+        'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -118,6 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# all static files collection
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
@@ -126,6 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # send emails settings
 
 EMAIL_HOST = 'smtp.gmail.com'
