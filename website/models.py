@@ -5,6 +5,7 @@ from django.db import models
 
 class Car_data(models.Model):
     mark = models.CharField(max_length=15)
+    model = models.CharField(max_length=50, default='')
     year = models.IntegerField()
     nrg = models.CharField(max_length=15)
     transmission = models.CharField(max_length=15)

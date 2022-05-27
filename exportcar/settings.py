@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'exportcar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3lsu5o7kht9nd',
-        'USER': 'deibxzehgdnatv',
-        'PASSWORD': '2f4163f72c33cada7b390d63de691cd3e32625f73a2cd935ead8ba836cb4cc2b',
-        'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
+        'NAME': 'cars_data',
+        'USER': 'saga_dev',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
